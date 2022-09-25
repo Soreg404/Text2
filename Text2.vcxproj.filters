@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pliki źródłowe\text">
+      <UniqueIdentifier>{d07f85ac-04f7-4f5a-9c54-3687a3625b6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\gl">
+      <UniqueIdentifier>{cd404203-b28b-40dd-9b35-7155e9267d13}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\text.cpp">
+      <Filter>Pliki źródłowe\text</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glsrv.cpp">
+      <Filter>Pliki źródłowe\gl</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\util.h">
+      <Filter>Pliki źródłowe</Filter>
+    </ClInclude>
+    <ClInclude Include="include\text.hpp">
+      <Filter>Pliki źródłowe\text</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glsrv.hpp">
+      <Filter>Pliki źródłowe\gl</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shd\shd.frag">
+      <Filter>Pliki zasobów</Filter>
+    </None>
+    <None Include="res\shd\shd.vert">
+      <Filter>Pliki zasobów</Filter>
+    </None>
+  </ItemGroup>
+</Project>
