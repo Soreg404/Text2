@@ -27,7 +27,7 @@ int main() {
 	t1.setFont(f1);
 	t1.setFontSize(48);
 	t1.apply();
-	//t1.GPUload();
+	t1.GPUload();
 
 	while(!glfwWindowShouldClose(wnd)) {
 
