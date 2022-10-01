@@ -153,7 +153,7 @@ void txt::SBound::GPUload() {
 		texUnit++;
 		if(texUnit == gl::getTU()) texUnit = 0;
 	}
-
+	
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, chPosBuffer.size() * sizeof(CHPOS), chPosBuffer.data(), GL_STATIC_DRAW);
@@ -170,6 +170,7 @@ void txt::SBound::draw() {
 	for(auto &c : chUsage) {
 		glActiveTexture(GL_TEXTURE0 + tBound_i);
 		glBindTexture(GL_TEXTURE_2D, currFont->get(fh, c.first)->texid);
+		LOG("binding texture to %i; char %c, id %i", tBound_i, c.first, currFont->get(fh, c.first)->texid);
 		tBound_i++;
 	}
 
@@ -193,6 +194,7 @@ void txt::SBound::applyTextFont() {
 	for(auto &c : newChUsage) {
 		c.second.head = tmpHead;
 		tmpHead += c.second.count;
+		LOG("char %c count: %i head %i", c.first, c.second.count, c.second.head);
 	}
 
 	if(currFont) {
@@ -246,7 +248,7 @@ void txt::SBound::applyPositions() {
 		if(chb->tmpCounter == chb->count) chb->tmpCounter = 0;
 
 		CHPOS insertPos;
-		insertPos.xpos = advance + chInfo->x;
+		insertPos.xpos = advance*2 + chInfo->x;
 		insertPos.ypos = line * fh + chInfo->y;
 
 		insertPos.width = chInfo->w;

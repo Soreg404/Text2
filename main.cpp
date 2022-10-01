@@ -23,9 +23,9 @@ int main() {
 	txt::PFont f1 = txt::Font::load("res/font/arial.ttf");
 
 	txt::SBound t1;
-	t1.setText(L"Hello, world!");
+	t1.setText(L"ab cd ef");
 	t1.setFont(f1);
-	t1.setFontSize(48);
+	t1.setFontSize(30);
 	t1.apply();
 	t1.GPUload();
 

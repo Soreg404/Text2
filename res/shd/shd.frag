@@ -12,7 +12,8 @@ out vec4 color;
 void main() {
 	
 	float textRed = texture(sampler[samplerIndex], uv).r;
+	float smpl = float(samplerIndex) / 6.f;
 
-	color = vec4(.01f * (instId + 1), textRed, .3, 1);
+	color = vec4(.04f * (instId + 1), smpl, .6, 1);
 
 }
