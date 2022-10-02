@@ -103,7 +103,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>%STORE%lib\C++\glfw\lib\$(PlatformShortName)\lib-vc2022;%STORE%lib\C++\glew\lib\Release\x64;%STORE%lib\C++\freetype\lib\msvc-release\x64\dll</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(Store)lib\C++\glfw\lib\$(PlatformShortName)\lib-vc2022;$(Store)lib\C++\glew\lib\Release\x64;$(Store)lib\C++\freetype\lib\msvc-release\x64\dll</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3dll.lib;glew32.lib;opengl32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -124,7 +124,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>%STORE%lib\C++\glfw\lib\$(PlatformShortName)\lib-vc2022;%STORE%lib\C++\glew\lib\Release\x64;%STORE%lib\C++\freetype\lib\msvc-release\x64\dll</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(Store)lib\C++\glfw\lib\$(PlatformShortName)\lib-vc2022;$(Store)lib\C++\glew\lib\Release\x64;$(Store)lib\C++\freetype\lib\msvc-release\x64\dll</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3dll.lib;glew32.lib;opengl32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -141,7 +141,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>%STORE%lib\C++\glfw\lib\$(PlatformShortName)\lib-vc2022;%STORE%lib\C++\glew\lib\Release\x64;%STORE%lib\C++\freetype\lib\msvc-release\x64\dll</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(Store)lib\C++\glfw\lib\$(PlatformShortName)\lib-vc2022;$(Store)lib\C++\glew\lib\Release\x64;$(Store)lib\C++\freetype\lib\msvc-release\x64\dll</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3dll.lib;glew32.lib;opengl32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -162,25 +162,25 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>%STORE%lib\C++\glfw\lib\$(PlatformShortName)\lib-vc2022;%STORE%lib\C++\glew\lib\Release\x64;%STORE%lib\C++\freetype\lib\msvc-release\x64\dll</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(Store)lib\C++\glfw\lib\$(PlatformShortName)\lib-vc2022;$(Store)lib\C++\glew\lib\Release\x64;$(Store)lib\C++\freetype\lib\msvc-release\x64\dll</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3dll.lib;glew32.lib;opengl32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="util.cpp">
+    <ClCompile Include="src\glsrv.cpp" />
+    <ClCompile Include="src\text.cpp" />
+    <ClCompile Include="src\util.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\glsrv.cpp" />
-    <ClCompile Include="src\text.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\glsrv.hpp" />
     <ClInclude Include="include\util.h" />
     <ClInclude Include="include\text.hpp" />
+    <ClInclude Include="src\glsrv.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shd\shd.frag" />

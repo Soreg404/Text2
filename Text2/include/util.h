@@ -1,6 +1,8 @@
 #pragma once
 
+#ifndef _MSC_VER
 #define GLEW_STATIC
+#endif
 #include <glew/glew.h>
 #include <glfw/glfw3.h>
 

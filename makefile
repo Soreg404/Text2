@@ -1,42 +1,52 @@
 CC=g++
 
+SELF_DIR=$(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+
+SHELL=cmd
+
 BIN=bin/mingw/
 INT=bin/mingw/int/
 
-INCLD=include $(EXT_DRIVE)/lib/C++ $(EXT_DRIVE)/lib/C++/freetype
-INCL=$(addprefix -I,$(INCLD))
-HEADERS=include/*
+PROJ=Text2/
+SRC=$(PROJ)src/
 
-LIB_PR= glew/lib/Release/x64 glfw/lib/x64/lib-mingw-w64 freetype/lib/release/x64/static
-LIB=$(addprefix -L$(EXT_DRIVE)/lib/C++/,$(LIB_PR))
-LIBS= $(EXT_DRIVE)/lib/C++/glew/lib/Release/x64/glew32s.lib -lfreetype -lglfw3 -lgdi32 -lopengl32
+SDKP=$(EXT_DRIVE)/lib/C++
 
-OBJ_N=main util text glsrv
-OBJS=$(addprefix $(INT),$(addsuffix .o,$(OBJ_N)))
+INCLUDE_PATHS=$(PROJ)include $(SDKP) $(SDKP)/freetype
+INCL=$(addprefix -I,$(INCLUDE_PATHS))
+HEADERS=$(PROJ)include/text.hpp $(SRC)glsrv.hpp
 
-SRC=src/
+LIBRARY_PATHS=glfw/lib/x64/lib-mingw-w64 freetype/lib/release/x64/static
+LIB=$(addprefix -L$(SDKP)/,$(LIBRARY_PATHS))
+LIBS= $(SDKP)/glew/lib/Release/x64/glew32s.lib -lglfw3 -lfreetype -lgdi32 -lopengl32
 
-$(BIN)main.exe: $(OBJS) $(HEADERS) include/util.h.gch
-	$(CC) $(OBJS) $(LIB) $(LIBS) -o $@
+MAIN_OBJ=$(INT)main.o
+OBJ_NAMES=util text glsrv
+OBJS=$(addprefix $(INT),$(addsuffix .o,$(OBJ_NAMES)))
 
-./include/util.h.gch: ./include/util.h
-	$(CC) $^
+
+
+$(BIN)main.exe: $(OBJS) $(MAIN_OBJ) $(HEADERS) $(PROJ)include/util.h.gch
+	@echo --- building program ---
+	$(CC) $(OBJS) $(MAIN_OBJ) $(LIB) $(LIBS) -o $@
+
+CMP=$(CC) -c $^ $(INCL) -o $@
+
+$(OBJS): $(INT)%.o : $(SRC)%.cpp
+	@echo --- compiling $(notdir $^) ---
+	$(CMP)
+
+$(MAIN_OBJ): $(PROJ)test.cpp
+	@echo --- compiling $(notdir $^) to main.o ---
+	$(CMP)
 
 $(HEADERS):
-	echo $@
+	@echo header: $@
 
-
-$(INT)util.o: util.cpp
-	$(CC) -c $^ $(INCL) -o $@
-	
-$(INT)main.o: main.cpp
-	$(CC) -c $^ $(INCL) -o $@ 
-
-$(INT)glsrv.o: $(SRC)glsrv.cpp
-	$(CC) -c $^ $(INCL) -o $@
-
-$(INT)text.o: $(SRC)text.cpp
-	$(CC) -c $^ $(INCL) -o $@
+$(PROJ)include/util.h.gch: $(PROJ)include/util.h
+	@echo --- precompiled headers ---
+	$(CC) $^
 
 clean:
-	del $(subst /,\,$(INT)*) /Q
+	@echo -- cleaning --
+	@del $(subst /,\,$(INT)*) /Q
