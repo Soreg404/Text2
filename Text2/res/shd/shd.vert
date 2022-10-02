@@ -16,10 +16,10 @@ void main() {
 	
 	int posX = pos.x, posY = pos.y;
 	switch(gl_VertexID % 4) {
-		case 0: posX += size.x; uv = vec2(1, 0); break;
+		case 0: posX += size.x + 10; uv = vec2(1, 0); break;
 		case 1: uv = vec2(0, 0); break;
-		case 2: posY -= size.y; uv = vec2(0, 1); break;
-		case 3: posX += size.x; posY -= size.y; uv = vec2(1, 1); break;
+		case 2: posY -= size.y + 10; uv = vec2(0, 1); break;
+		case 3: posX += size.x + 10; posY -= size.y + 10; uv = vec2(1, 1); break;
 	}
 
 	gl_Position = projection * vec4(posX + 200, posY + 200, -1, 1);

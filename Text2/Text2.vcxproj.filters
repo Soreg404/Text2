@@ -21,28 +21,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="util.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="src\text.cpp">
-      <Filter>Pliki źródłowe\text</Filter>
+      <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="src\glsrv.cpp">
-      <Filter>Pliki źródłowe\gl</Filter>
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\util.h">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="include\text.hpp">
-      <Filter>Pliki źródłowe\text</Filter>
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="include\glsrv.hpp">
-      <Filter>Pliki źródłowe\gl</Filter>
+    <ClInclude Include="src\glsrv.hpp">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
